@@ -1,0 +1,72 @@
+Ganache CLI v6.12.2 (ganache-core: 2.13.2)
+
+Available Accounts
+==================
+(0) 0x42BC4541194bc7f61eEED1907063D17F42483353 (100 ETH)
+(1) 0xDE5a65337908b43651f34Ce50471d3471397c058 (100 ETH)
+(2) 0x7944B54F9D6EdC0C95ba203B0ec1c69A30E3b0dA (100 ETH)
+(3) 0x93cEc5782FE825ee0CaB5cE2c0731e7d1FEFF16f (100 ETH)
+(4) 0xb5bDCe88caD99aB66EEE660818a95D9693e21380 (100 ETH)
+(5) 0x4D5f28a9916B8fED9fd2df22a07Ec6350c524B10 (100 ETH)
+(6) 0x259690CC4F0A5d8CD7a47B7e240A50F22763a0c7 (100 ETH)
+(7) 0xDAbf8479341eF870E4E07AE822f0A2FDCc2c4081 (100 ETH)
+(8) 0x4b80c3886D39216BE8224488bE2844dEDB417d34 (100 ETH)
+(9) 0x3D89FE3b32Df6c161Cb3B4F777aa3e39F16a05cB (100 ETH)
+
+Private Keys
+==================
+(0) 0xa66a6ac8cdf18a2f22e89114a238336ea1f87dbb454ddab343d0d7abe8052431
+(1) 0x395ae62fbf6a42d211f158e10e699300841e10560c92ad01e3b978aaf131e7bc
+(2) 0x02a017b26dc123111b6739295a782a59977e37ee326237b241ef53cdb1364bac
+(3) 0x267833207a5e76a731f95a3219dcf902b188a6a356edea2bb5356cfdeede4c47
+(4) 0x950cee3f5aef26a4e1524732247118a9a690f905a5db64e89fdc45cea1d2ad9d
+(5) 0x2b53c48c6cc7fcca99d7cde643a99b4595e7ac07b98bf41af0e3c782f0458364
+(6) 0x96100dea3740808b3717cbcb670e209200863c81a34b377bf7fd3ed811505cce
+(7) 0x0bf44c30ec54429f98139e90e42d246ebf4397f375d29de12da496159833c9d6
+(8) 0xbfb81597f73e86036f5702598592137c3c113eb641dc92c1b57b6d37351ec0d2
+(9) 0x11c708061532c1942a449a074eaa9dc88b11ae588cbcbb7104d3a1165cd8f7ab
+
+HD Wallet
+==================
+Mnemonic:      pulse spray slice method frown barely saddle pull milk happy ladder fury
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Gas Price
+==================
+20000000000
+
+Gas Limit
+==================
+6721975
+
+Call Gas Limit
+==================
+9007199254740991
+
+Listening on 127.0.0.1:8545
+eth_blockNumber
+net_version
+eth_accounts
+eth_getBlockByNumber
+eth_accounts
+net_version
+eth_getBlockByNumber
+eth_getBlockByNumber
+net_version
+eth_getBlockByNumber
+eth_estimateGas
+net_version
+eth_blockNumber
+eth_getBlockByNumber
+eth_getBlockByNumber
+eth_gasPrice
+eth_sendTransaction
+
+  Transaction: 0x8a7acefbf36286797aac8f22d35e04d9f371fc8591abd9a2bf62f2ec4a8360b7
+  Contract created: 0xf5ceb0dbd6f7951539c34ca11b79fd852c1038cd
+  Gas usage: 500000
+  Block Number: 1
+  Block Time: Thu Feb 13 2025 14:04:15 GMT-0800 (Pacific Standard Time)
+  Runtime Error: invalid opcode
+
+eth_call

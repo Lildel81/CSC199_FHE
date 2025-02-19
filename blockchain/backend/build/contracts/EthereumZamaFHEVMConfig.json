@@ -1,0 +1,753 @@
+{
+  "contractName": "EthereumZamaFHEVMConfig",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.24+commit.e11b9ed9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"details\":\"This contract can be inherited by a contract wishing to use the FHEVM contracts provided by Zama          on the Ethereum (mainnet) network (chainId = 1).          Other providers may offer similar contracts deployed at different addresses.          If you wish to use them, you should rely on the instructions from these providers.\",\"kind\":\"dev\",\"methods\":{},\"title\":\"EthereumZamaFHEVMConfig.\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"fhevm/config/ZamaFHEVMConfig.sol\":\"EthereumZamaFHEVMConfig\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"fhevm/config/ZamaFHEVMConfig.sol\":{\"keccak256\":\"0x41782f4c707b81399916544fa2e7be94a695fa4ba468542732d29d3e383c0315\",\"license\":\"BSD-3-Clause-Clear\",\"urls\":[\"bzz-raw://45a95a55c4bbb3418c2133cba6ed21a9444bb4e38d38b32cc707b7493cece2ca\",\"dweb:/ipfs/QmVU8EKmZgscdM43RgXD4EgbVMhQxBusTmBren3pbn1pUW\"]},\"fhevm/lib/Impl.sol\":{\"keccak256\":\"0x89d4968cd956a8931f1a8a177b3bef1c6cf88a03665083db74430add50b88f21\",\"license\":\"BSD-3-Clause-Clear\",\"urls\":[\"bzz-raw://aaaef2c82d56dacfb08946842ea1ce26757d13f3251de62fa79222232dfcb43c\",\"dweb:/ipfs/QmQ6QZPxJw9jb3qjRYCX7pMQVoYogjTsYgmdEnB3EnwFRy\"]},\"fhevm/lib/TFHE.sol\":{\"keccak256\":\"0x221799c8332f83ab65a0b71746409f0c2c89f1cd8d9ba4091d967c667e1df734\",\"license\":\"BSD-3-Clause-Clear\",\"urls\":[\"bzz-raw://2dba387fbc612a2ee64063b0ee6c27304b3944423d11045acc50abd84577fb5f\",\"dweb:/ipfs/QmThptDGnpd8PuncFk1rnQoCzEqwUED622yC9xZgFhwY59\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561000f575f80fd5b5061011861003c604080516080810182525f80825260208201819052918101829052606081019190915290565b80517fed8d60e34876f751cc8b014c560745351147d9de11b9347c854e881b128ea60080546001600160a01b03199081166001600160a01b039384161790915560208301517fed8d60e34876f751cc8b014c560745351147d9de11b9347c854e881b128ea6018054831691841691909117905560408301517fed8d60e34876f751cc8b014c560745351147d9de11b9347c854e881b128ea6028054831691841691909117905560608301517fed8d60e34876f751cc8b014c560745351147d9de11b9347c854e881b128ea6038054909216921691909117905550565b603e806101245f395ff3fe60806040525f80fdfea26469706673582212205c1c6d0efca5fc5fac857f509eeda010136ee37e910e92bde4712e5d52a0993264736f6c63430008180033",
+  "deployedBytecode": "0x60806040525f80fdfea26469706673582212205c1c6d0efca5fc5fac857f509eeda010136ee37e910e92bde4712e5d52a0993264736f6c63430008180033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "1956:122:0:-:0;;;1995:81;;;;;;;;;-1:-1:-1;2019:50:0;2033:35;1956:122;;;;;;;;-1:-1:-1;1956:122:0;;;;;;;;;;;;;;;;;;;;;;935:102;;2033:35;4806:22:1;;4619:19;4791:37;;-1:-1:-1;;;;;;4791:37:1;;;-1:-1:-1;;;;;4791:37:1;;;;;;;4862:31;;;;4838:21;:55;;;;;;;;;;;;;4925:29;;;;4903:19;:51;;;;;;;;;;;;;4987:30;;;;4964:20;:53;;;;;;;;;;;;;1250:108:2;;2019:50:0;1956:122;;;;;;",
+  "deployedSourceMap": "1956:122:0:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: BSD-3-Clause-Clear\npragma solidity ^0.8.24;\n\nimport {TFHE} from \"../lib/TFHE.sol\";\nimport {FHEVMConfigStruct} from \"../lib/Impl.sol\";\n\n/**\n * @title   ZamaFHEVMConfig.\n * @notice  This library returns the TFHE config for different networks\n *          with the contract addresses for\n *          (1) ACL, (2) TFHEExecutor, (3) FHEPayment, (4) KMSVerifier,\n *          which are deployed & maintained by Zama.\n */\nlibrary ZamaFHEVMConfig {\n    function getSepoliaConfig() internal pure returns (FHEVMConfigStruct memory) {\n        return\n            FHEVMConfigStruct({\n                ACLAddress: 0xFee8407e2f5e3Ee68ad77cAE98c434e637f516e5,\n                TFHEExecutorAddress: 0x687408aB54661ba0b4aeF3a44156c616c6955E07,\n                FHEPaymentAddress: 0xFb03BE574d14C256D56F09a198B586bdfc0A9de2,\n                KMSVerifierAddress: 0x9D6891A6240D6130c54ae243d8005063D05fE14b\n            });\n    }\n\n    function getEthereumConfig() internal pure returns (FHEVMConfigStruct memory) {\n        /// TODO\n    }\n}\n\n/**\n * @title   SepoliaZamaFHEVMConfig.\n * @dev     This contract can be inherited by a contract wishing to use the FHEVM contracts provided by Zama\n *          on the Sepolia network (chainId = 11155111).\n *          Other providers may offer similar contracts deployed at different addresses.\n *          If you wish to use them, you should rely on the instructions from these providers.\n */\ncontract SepoliaZamaFHEVMConfig {\n    constructor() {\n        TFHE.setFHEVM(ZamaFHEVMConfig.getSepoliaConfig());\n    }\n}\n\n/**\n * @title   EthereumZamaFHEVMConfig.\n * @dev     This contract can be inherited by a contract wishing to use the FHEVM contracts provided by Zama\n *          on the Ethereum (mainnet) network (chainId = 1).\n *          Other providers may offer similar contracts deployed at different addresses.\n *          If you wish to use them, you should rely on the instructions from these providers.\n */\ncontract EthereumZamaFHEVMConfig {\n    constructor() {\n        TFHE.setFHEVM(ZamaFHEVMConfig.getEthereumConfig());\n    }\n}\n",
+  "sourcePath": "fhevm/config/ZamaFHEVMConfig.sol",
+  "ast": {
+    "absolutePath": "fhevm/config/ZamaFHEVMConfig.sol",
+    "exportedSymbols": {
+      "EthereumZamaFHEVMConfig": [
+        56
+      ],
+      "FHEVMConfigStruct": [
+        69
+      ],
+      "SepoliaZamaFHEVMConfig": [
+        42
+      ],
+      "TFHE": [
+        56298
+      ],
+      "ZamaFHEVMConfig": [
+        28
+      ]
+    },
+    "id": 57,
+    "license": "BSD-3-Clause-Clear",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "47:24:0"
+      },
+      {
+        "absolutePath": "fhevm/lib/TFHE.sol",
+        "file": "../lib/TFHE.sol",
+        "id": 3,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 57,
+        "sourceUnit": 56299,
+        "src": "73:37:0",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 2,
+              "name": "TFHE",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 56298,
+              "src": "81:4:0",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "fhevm/lib/Impl.sol",
+        "file": "../lib/Impl.sol",
+        "id": 5,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 57,
+        "sourceUnit": 1806,
+        "src": "111:50:0",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 4,
+              "name": "FHEVMConfigStruct",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 69,
+              "src": "119:17:0",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ZamaFHEVMConfig",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": {
+          "id": 6,
+          "nodeType": "StructuredDocumentation",
+          "src": "163:277:0",
+          "text": " @title   ZamaFHEVMConfig.\n @notice  This library returns the TFHE config for different networks\n          with the contract addresses for\n          (1) ACL, (2) TFHEExecutor, (3) FHEPayment, (4) KMSVerifier,\n          which are deployed & maintained by Zama."
+        },
+        "fullyImplemented": true,
+        "id": 28,
+        "linearizedBaseContracts": [
+          28
+        ],
+        "name": "ZamaFHEVMConfig",
+        "nameLocation": "449:15:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 19,
+              "nodeType": "Block",
+              "src": "548:381:0",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "hexValue": "307846656538343037653266356533456536386164373763414539386334333465363337663531366535",
+                        "id": 13,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "625:42:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "value": "0xFee8407e2f5e3Ee68ad77cAE98c434e637f516e5"
+                      },
+                      {
+                        "hexValue": "307836383734303861423534363631626130623461654633613434313536633631366336393535453037",
+                        "id": 14,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "706:42:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "value": "0x687408aB54661ba0b4aeF3a44156c616c6955E07"
+                      },
+                      {
+                        "hexValue": "307846623033424535373464313443323536443536463039613139384235383662646663304139646532",
+                        "id": 15,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "785:42:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "value": "0xFb03BE574d14C256D56F09a198B586bdfc0A9de2"
+                      },
+                      {
+                        "hexValue": "307839443638393141363234304436313330633534616532343364383030353036334430356645313462",
+                        "id": 16,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "865:42:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "value": "0x9D6891A6240D6130c54ae243d8005063D05fE14b"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 12,
+                      "name": "FHEVMConfigStruct",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 69,
+                      "src": "577:17:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_FHEVMConfigStruct_$69_storage_ptr_$",
+                        "typeString": "type(struct FHEVMConfigStruct storage pointer)"
+                      }
+                    },
+                    "id": 17,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "nameLocations": [
+                      "613:10:0",
+                      "685:19:0",
+                      "766:17:0",
+                      "845:18:0"
+                    ],
+                    "names": [
+                      "ACLAddress",
+                      "TFHEExecutorAddress",
+                      "FHEPaymentAddress",
+                      "KMSVerifierAddress"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "577:345:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FHEVMConfigStruct_$69_memory_ptr",
+                      "typeString": "struct FHEVMConfigStruct memory"
+                    }
+                  },
+                  "functionReturnParameters": 11,
+                  "id": 18,
+                  "nodeType": "Return",
+                  "src": "558:364:0"
+                }
+              ]
+            },
+            "id": 20,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSepoliaConfig",
+            "nameLocation": "480:16:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "496:2:0"
+            },
+            "returnParameters": {
+              "id": 11,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20,
+                  "src": "522:24:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_FHEVMConfigStruct_$69_memory_ptr",
+                    "typeString": "struct FHEVMConfigStruct"
+                  },
+                  "typeName": {
+                    "id": 9,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 8,
+                      "name": "FHEVMConfigStruct",
+                      "nameLocations": [
+                        "522:17:0"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 69,
+                      "src": "522:17:0"
+                    },
+                    "referencedDeclaration": 69,
+                    "src": "522:17:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FHEVMConfigStruct_$69_storage_ptr",
+                      "typeString": "struct FHEVMConfigStruct"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "521:26:0"
+            },
+            "scope": 28,
+            "src": "471:458:0",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 26,
+              "nodeType": "Block",
+              "src": "1013:24:0",
+              "statements": []
+            },
+            "id": 27,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEthereumConfig",
+            "nameLocation": "944:17:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "961:2:0"
+            },
+            "returnParameters": {
+              "id": 25,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 24,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 27,
+                  "src": "987:24:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_FHEVMConfigStruct_$69_memory_ptr",
+                    "typeString": "struct FHEVMConfigStruct"
+                  },
+                  "typeName": {
+                    "id": 23,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 22,
+                      "name": "FHEVMConfigStruct",
+                      "nameLocations": [
+                        "987:17:0"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 69,
+                      "src": "987:17:0"
+                    },
+                    "referencedDeclaration": 69,
+                    "src": "987:17:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FHEVMConfigStruct_$69_storage_ptr",
+                      "typeString": "struct FHEVMConfigStruct"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "986:26:0"
+            },
+            "scope": 28,
+            "src": "935:102:0",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 57,
+        "src": "441:598:0",
+        "usedErrors": [],
+        "usedEvents": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "SepoliaZamaFHEVMConfig",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 29,
+          "nodeType": "StructuredDocumentation",
+          "src": "1041:393:0",
+          "text": " @title   SepoliaZamaFHEVMConfig.\n @dev     This contract can be inherited by a contract wishing to use the FHEVM contracts provided by Zama\n          on the Sepolia network (chainId = 11155111).\n          Other providers may offer similar contracts deployed at different addresses.\n          If you wish to use them, you should rely on the instructions from these providers."
+        },
+        "fullyImplemented": true,
+        "id": 42,
+        "linearizedBaseContracts": [
+          42
+        ],
+        "name": "SepoliaZamaFHEVMConfig",
+        "nameLocation": "1444:22:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 40,
+              "nodeType": "Block",
+              "src": "1487:66:0",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "expression": {
+                            "id": 35,
+                            "name": "ZamaFHEVMConfig",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 28,
+                            "src": "1511:15:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_ZamaFHEVMConfig_$28_$",
+                              "typeString": "type(library ZamaFHEVMConfig)"
+                            }
+                          },
+                          "id": 36,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "1527:16:0",
+                          "memberName": "getSepoliaConfig",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 20,
+                          "src": "1511:32:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_FHEVMConfigStruct_$69_memory_ptr_$",
+                            "typeString": "function () pure returns (struct FHEVMConfigStruct memory)"
+                          }
+                        },
+                        "id": 37,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1511:34:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_FHEVMConfigStruct_$69_memory_ptr",
+                          "typeString": "struct FHEVMConfigStruct memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_FHEVMConfigStruct_$69_memory_ptr",
+                          "typeString": "struct FHEVMConfigStruct memory"
+                        }
+                      ],
+                      "expression": {
+                        "id": 32,
+                        "name": "TFHE",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 56298,
+                        "src": "1497:4:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_TFHE_$56298_$",
+                          "typeString": "type(library TFHE)"
+                        }
+                      },
+                      "id": 34,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1502:8:0",
+                      "memberName": "setFHEVM",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 1886,
+                      "src": "1497:13:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_FHEVMConfigStruct_$69_memory_ptr_$returns$__$",
+                        "typeString": "function (struct FHEVMConfigStruct memory)"
+                      }
+                    },
+                    "id": 38,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1497:49:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 39,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1497:49:0"
+                }
+              ]
+            },
+            "id": 41,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 30,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1484:2:0"
+            },
+            "returnParameters": {
+              "id": 31,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1487:0:0"
+            },
+            "scope": 42,
+            "src": "1473:80:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 57,
+        "src": "1435:120:0",
+        "usedErrors": [],
+        "usedEvents": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "EthereumZamaFHEVMConfig",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 43,
+          "nodeType": "StructuredDocumentation",
+          "src": "1557:398:0",
+          "text": " @title   EthereumZamaFHEVMConfig.\n @dev     This contract can be inherited by a contract wishing to use the FHEVM contracts provided by Zama\n          on the Ethereum (mainnet) network (chainId = 1).\n          Other providers may offer similar contracts deployed at different addresses.\n          If you wish to use them, you should rely on the instructions from these providers."
+        },
+        "fullyImplemented": true,
+        "id": 56,
+        "linearizedBaseContracts": [
+          56
+        ],
+        "name": "EthereumZamaFHEVMConfig",
+        "nameLocation": "1965:23:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 54,
+              "nodeType": "Block",
+              "src": "2009:67:0",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "expression": {
+                            "id": 49,
+                            "name": "ZamaFHEVMConfig",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 28,
+                            "src": "2033:15:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_ZamaFHEVMConfig_$28_$",
+                              "typeString": "type(library ZamaFHEVMConfig)"
+                            }
+                          },
+                          "id": 50,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "2049:17:0",
+                          "memberName": "getEthereumConfig",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 27,
+                          "src": "2033:33:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_FHEVMConfigStruct_$69_memory_ptr_$",
+                            "typeString": "function () pure returns (struct FHEVMConfigStruct memory)"
+                          }
+                        },
+                        "id": 51,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "2033:35:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_FHEVMConfigStruct_$69_memory_ptr",
+                          "typeString": "struct FHEVMConfigStruct memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_FHEVMConfigStruct_$69_memory_ptr",
+                          "typeString": "struct FHEVMConfigStruct memory"
+                        }
+                      ],
+                      "expression": {
+                        "id": 46,
+                        "name": "TFHE",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 56298,
+                        "src": "2019:4:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_TFHE_$56298_$",
+                          "typeString": "type(library TFHE)"
+                        }
+                      },
+                      "id": 48,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "2024:8:0",
+                      "memberName": "setFHEVM",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 1886,
+                      "src": "2019:13:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_FHEVMConfigStruct_$69_memory_ptr_$returns$__$",
+                        "typeString": "function (struct FHEVMConfigStruct memory)"
+                      }
+                    },
+                    "id": 52,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2019:50:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 53,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2019:50:0"
+                }
+              ]
+            },
+            "id": 55,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2006:2:0"
+            },
+            "returnParameters": {
+              "id": 45,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2009:0:0"
+            },
+            "scope": 56,
+            "src": "1995:81:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 57,
+        "src": "1956:122:0",
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "src": "47:2032:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.24+commit.e11b9ed9.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2025-02-13T22:04:09.140Z",
+  "devdoc": {
+    "details": "This contract can be inherited by a contract wishing to use the FHEVM contracts provided by Zama          on the Ethereum (mainnet) network (chainId = 1).          Other providers may offer similar contracts deployed at different addresses.          If you wish to use them, you should rely on the instructions from these providers.",
+    "kind": "dev",
+    "methods": {},
+    "title": "EthereumZamaFHEVMConfig.",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
