@@ -4,14 +4,14 @@ export default {
       host: "127.0.0.1", // Localhost
       port: 8545,        // Standard Ethereum port
       network_id: "*",   // Any network
-      gas: 600000000,
-      gasPrice: 2000000000
+      gas: 50000000, //increase gas limit
+      gasPrice: 0 //reduced gas prices.
     },
      fhevm: {
       host: "127.0.0.1",
       port: 8545,
       network_id: "*",
-      gas: 8000000 //larger gass rate for FHE operations
+      gas: 50000000 //larger gass rate for FHE operations
     },
 
   },
