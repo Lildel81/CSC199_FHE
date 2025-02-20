@@ -27,11 +27,18 @@ contract Election {
         started = false;
         ended = false;
 	//setting totals as encrypted values
-        count = Counts({
+       /* count = Counts({
 	
 	red_total: TFHE.asEuint256(0),
         blue_total: TFHE.asEuint256(0)
-	});
+	});*/
+    }
+
+    function initializeCounts() public 
+    {
+	    require(msg.sender == owner, "Only owner can initialize counts");
+	    count.red_total = TFHE.asEuint256(0);
+	    count.blue_total = TFHE.asEuint256(0);
     }
 
     modifier onlyOwner()
