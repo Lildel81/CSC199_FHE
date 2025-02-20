@@ -1,0 +1,200 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/terry/Desktop/Zama/hhProject/contracts/Lock.sol": {
+      "lastModificationDate": 1740079679683,
+      "contentHash": "7eee587c347fe6b1de50c96688cb9477",
+      "sourceName": "contracts/Lock.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.28"
+      ],
+      "artifacts": [
+        "Lock"
+      ]
+    },
+    "/home/terry/Desktop/Zama/hhProject/contracts/election.sol": {
+      "lastModificationDate": 1740080314800,
+      "contentHash": "edf066ca38caf6b59f936bdad35eb8e6",
+      "sourceName": "contracts/election.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "fhevm/lib/TFHE.sol",
+        "fhevm/config/ZamaFHEVMConfig.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.28"
+      ],
+      "artifacts": [
+        "Election"
+      ]
+    },
+    "/home/terry/Desktop/Zama/hhProject/node_modules/fhevm/config/ZamaFHEVMConfig.sol": {
+      "lastModificationDate": 1740079907289,
+      "contentHash": "2b99c2f099c9ee96f76dec9acff7d320",
+      "sourceName": "fhevm/config/ZamaFHEVMConfig.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../lib/TFHE.sol",
+        "../lib/Impl.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "EthereumZamaFHEVMConfig",
+        "SepoliaZamaFHEVMConfig",
+        "ZamaFHEVMConfig"
+      ]
+    },
+    "/home/terry/Desktop/Zama/hhProject/node_modules/fhevm/lib/TFHE.sol": {
+      "lastModificationDate": 1740079907289,
+      "contentHash": "5e1b4ee3a4cc167d6f59a3e72db2a7f9",
+      "sourceName": "fhevm/lib/TFHE.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Impl.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "Common",
+        "TFHE"
+      ]
+    },
+    "/home/terry/Desktop/Zama/hhProject/node_modules/fhevm/lib/Impl.sol": {
+      "lastModificationDate": 1740079907237,
+      "contentHash": "93d7e3908104c93e0038c718f41d7c54",
+      "sourceName": "fhevm/lib/Impl.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./TFHE.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "IACL",
+        "ITFHEExecutor",
+        "Impl"
+      ]
+    }
+  }
+}
