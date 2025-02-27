@@ -1,0 +1,7 @@
+*
+!lib/**
+!decryption/**
+!config/**
+!package.json
+!README.md
+!LICENSE

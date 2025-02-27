@@ -1,0 +1,40 @@
+Check if fhevm-tfhe-cli is available in /usr/local/bin 
+fhevm-tfhe-cli exists, let's create keys!
+Generating FHE keys in res/keys
+Generated cks size: 38870 bytes
+Generated sks size: 109518190 bytes
+Generated pks size: 32937 bytes
+###########################################################
+Keys creation is done, they are stored in /config/res/keys
+###########################################################
+###########################################################
+All the required keys exist in /config/res/keys
+###########################################################
+Copying sks to /root/.ethermintd/zama/keys/network-fhe-keys, please wait ...
+Copying pks to /root/.ethermintd/zama/keys/network-fhe-keys, please wait ...
+Copying cks to /root/.ethermintd/zama/keys/network-fhe-keys, please wait ...
+INFO: global keys loaded from: /root/.ethermintd/zama/keys/network-fhe-keys
+INFO: global keys are initialized automatically using FHEVM_GO_KEYS_DIR env variable
+INFO: global keys loaded from: /root/.ethermintd/zama/keys/network-fhe-keys
+INFO: global keys are initialized automatically using FHEVM_GO_KEYS_DIR env variable
+INFO: global keys loaded from: /root/.ethermintd/zama/keys/network-fhe-keys
+INFO: global keys are initialized automatically using FHEVM_GO_KEYS_DIR env variable
+- address: ethm16hg7wf5mgrmjqs0k8754809ycjnkq9wvdj65kn
+  name: orchestrator
+  pubkey: '{"@type":"/ethermint.crypto.v1.ethsecp256k1.PubKey","key":"A1O/IyHqWXbHJZ6HAcrasMKY0Q8IEvRZE9VNfu+KDrRU"}'
+  type: local
+
+INFO: global keys loaded from: /root/.ethermintd/zama/keys/network-fhe-keys
+INFO: global keys are initialized automatically using FHEVM_GO_KEYS_DIR env variable
+INFO: global keys loaded from: /root/.ethermintd/zama/keys/network-fhe-keys
+INFO: global keys are initialized automatically using FHEVM_GO_KEYS_DIR env variable
+INFO: global keys loaded from: /root/.ethermintd/zama/keys/network-fhe-keys
+INFO: global keys are initialized automatically using FHEVM_GO_KEYS_DIR env variable
+INFO: global keys loaded from: /root/.ethermintd/zama/keys/network-fhe-keys
+INFO: global keys are initialized automatically using FHEVM_GO_KEYS_DIR env variable
+INFO: global keys loaded from: /root/.ethermintd/zama/keys/network-fhe-keys
+INFO: global keys are initialized automatically using FHEVM_GO_KEYS_DIR env variable
+File at /root/.ethermintd/config/genesis.json is a valid genesis file
+Server is listening at 0.0.0.0:50051
+INFO: global keys loaded from: /root/.ethermintd/zama/keys/network-fhe-keys
+INFO: global keys are initialized automatically using FHEVM_GO_KEYS_DIR env variable
